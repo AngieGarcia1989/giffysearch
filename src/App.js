@@ -1,12 +1,14 @@
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
 
 function App() {
+  const [gifs,setgifs] = useState(['https://media.giphy.com/media/LwhhZsEHFQgSs/giphy.gif'])
+ 
   return (
     <div className="App">
-      <header className="App-header">
-    
-      </header>
+      <section className="App-content">
+        <img src={gifs}/>
+      </section>
     </div>
   );
 }
