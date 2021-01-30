@@ -1,17 +1,23 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 
-const GIF = [
-  'https://media.giphy.com/media/LwhhZsEHFQgSs/giphy.gif',
-  'https://media.giphy.com/media/M1elR4TgD86sM/giphy.gif'
-]
+const url_API= 'https://api.giphy.com/v1/gifs/search?api_key=C8ShkkqqBNUg5lGIYLxtDDENUvG6DRLy&q=POMERANIA&limit=10&offset=0&rating=g&lang=en'
 
-const Diferente_Gif =[
-  'https://media.giphy.com/media/eFdRmrg7y604pPLl7g/giphy.gif'
-]
 
 function App() {
-  const [gifs,setGifs] = useState(GIF)
+  const [gifs,setGifs] = useState([])
+  useEffect(function () {
+    fetch(url_API)
+    .then(res => res.json())
+    .then(response =>{
+      const{data} = response
+      const gifs_P = data.map(image => image.images.downsized_medium.url)
+      setGifs(gifs_P)
+    })
+
+  },[])
+
+    
  
   return (
     <div className="App">
@@ -19,7 +25,6 @@ function App() {
         {
         gifs.map(singleGif => <img src={singleGif}/>)
         }
-        <button onClick={() =>setGifs(Diferente_Gif)}>Gif Change</button>
       </section>
     </div>
   );
