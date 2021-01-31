@@ -2,7 +2,7 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import Getgif from './Service/Getgif';
-import Gif from './Components/Gif';
+import ListOfGifs from './Components/ListOfGifs';
 
 
 
@@ -18,18 +18,10 @@ function App() {
   return (
     <div className="App">
       <section className="App-content">
-        {
-        gifs.map(({id,title,url,}) => 
-        <Gif
-          Key={id}
-          title={title} 
-          url={url} 
-          id={id}/>
-        
-        )}
+      <ListOfGifs gifs={gifs}/>
       </section>
     </div>
   );
-      }
+ }
 
 export default App;
