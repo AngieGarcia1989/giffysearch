@@ -2,6 +2,7 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import Getgif from './Service/Getgif';
+import Gif from './Components/Gif';
 
 
 
@@ -18,16 +19,14 @@ function App() {
     <div className="App">
       <section className="App-content">
         {
-        gifs.map(singleGif => {
-          return <div>
-            <small>{singleGif.id}</small>
-            <h4>{singleGif.title}</h4>
-            <img src={singleGif.url}/>
-          </div>
-
-        }
-        )
-        }
+        gifs.map(({id,title,url,}) => 
+        <Gif
+          Key={id}
+          title={title} 
+          url={url} 
+          id={id}/>
+        
+        )}
       </section>
     </div>
   );
