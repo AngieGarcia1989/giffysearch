@@ -1,7 +1,8 @@
-const url_API= 'https://api.giphy.com/v1/gifs/search?api_key=C8ShkkqqBNUg5lGIYLxtDDENUvG6DRLy&q=POMERANIA&limit=10&offset=0&rating=g&lang=en'
+const apikey='C8ShkkqqBNUg5lGIYLxtDDENUvG6DRLy'
 
+export default function Getgif ({keyword='panda'} ={}) {
+  const url_API= `https://api.giphy.com/v1/gifs/search?api_key=${apikey}&q=${keyword}&limit=10&offset=0&rating=g&lang=en`
 
-export default function Getgif () {
    return fetch(url_API)
     .then(res => res.json())
     .then(response =>{
