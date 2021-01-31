@@ -8,7 +8,12 @@ export default function Getgif ({keyword='panda'} ={}) {
     .then(response =>{
       const{data = []} = response
       if (Array.isArray(data)){ 
-      const gifs_P = data.map(image => image.images.downsized_medium.url)
+      const gifs_P = data.map(image =>
+        {
+const  {images,id,title} = image
+const {url} = image.images.downsized_medium
+    return {id,title,url}   
+} )
       return gifs_P
       }
     })

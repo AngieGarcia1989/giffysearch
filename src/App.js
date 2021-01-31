@@ -18,7 +18,7 @@ function App() {
     <div className="App">
       <section className="App-content">
         {
-        gifs.map(singleGif => <img src={singleGif}/>)
+        gifs.map(singleGif => <img src={singleGif.url}/>)
         }
       </section>
     </div>
