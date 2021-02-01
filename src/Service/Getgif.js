@@ -12,7 +12,7 @@ export default function Getgif ({keyword='panda'} ={}) {
         {
 const  {images,id,title} = image
 const {url} = image.images.downsized_medium
-    return {id,title,url}   
+    return {id,title,url,images}   
 } )
       return gifs_P
       }
