@@ -17,3 +17,8 @@
 .Gif img{
     object-fit: contain;
 }
+
+.carga img{
+    width: 100px;
+    height: 80px;
+}
