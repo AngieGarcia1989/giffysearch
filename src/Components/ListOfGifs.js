@@ -11,10 +11,12 @@ export default function ListOfGifs ({params}) {
 
   useEffect(function () {
     setloading(true)
-    Getgif({keyword}).then(change => {
+    Getgif({keyword})
+    .then(change => {
       setGifs(change)
       setloading(false)
     })
+    
     
   },[keyword])
 
